@@ -80,14 +80,14 @@ def register_nodes():
         'total_nodes': list(blockchain.nodes),
     }), 201
 
-@app.route('/nodes/resolve',methods=['GET'])
+
+@app.route('/nodes/resolve', methods=['GET'])
 def consensus():
     replased = blockchain.resolve_conflicts()
-
     if replased:
         response = {
             'message': 'Our chain was replased',
-            'new_chain':blockchain.chain
+            'new_chain': blockchain.chain
         }
 
-    return jsonify(response),200
+        return jsonify(response), 200
